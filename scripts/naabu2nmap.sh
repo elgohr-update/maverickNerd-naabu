@@ -32,6 +32,6 @@ ports=`cat $PORTSFILE | tr '\n' ','`
 # Running nmap on found results.
 
 echo "Running nmap service scan on found results."
-echo "Executing nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV --script vulners,http-title"
+echo "Executing nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV --script vulners,http-title --min-rate 40000 -T4 --max-retries 2"
 
-nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV --script vulners,http-title
+nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV --script vulners,http-title --min-rate 40000 -T4 --max-retries 2
